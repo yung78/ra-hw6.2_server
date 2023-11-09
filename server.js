@@ -27,9 +27,9 @@ router.get('/notes', async (ctx) => {
 router.post('/notes', async (ctx) => {
   data.addNote({
     id: customId({ lowerCase: true }),
-    content: ctx.request.body,
+    content: ctx.request.body.content,
   })
-  console.log(data.notes);
+  console.log(ctx.request.body);
 
   ctx.response.body = {
     status: 'ok',
